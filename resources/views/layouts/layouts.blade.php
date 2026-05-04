@@ -186,41 +186,38 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-         
-        </ul>
-      </nav>
+<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+   <li class="nav-item">
+  <a href="{{ route ('admin.index') }}" class="nav-link">
+    <i class="nav-icon fas fa-home"></i>
+        <р>Главная></p>
+   </a>
+  </li>
+  <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-archive"></i>
+    <p>
+      Категории
+      <i class="right fas fa-angle-left"></i>
+   </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+    <a href="{{ route ('categories.index') }}" class="nav-link"> 
+      <i class="far fa-circle nav-icon"></i> 
+      <р>Список категорий</p>
+    </a>
+</li>
+    <li class="nav-item">
+      <a href="{{ route ('categories.create') }}" class="nav-link"> 
+       <i class="far fa-circle nav-icon"></i>
+      <р>Новая категория</p>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -311,13 +308,13 @@ Content Wrapper. Contains page content
 <!--/.control-sidebar
 </div>
 
-<!-- jQuery -->
+
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
+
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
+
 <script src="{{ asset('assets/js/adminlte.min.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
+
 <script src="../../dist/js/demo.js"></script>
 
 
