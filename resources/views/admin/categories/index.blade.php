@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">Добавить категорию</a>
 
-                            @isset($categories) && count($categories)
+                            @if(count($categories))
                             <div class="table-responsive">
                                 <table class="table table-bordered table-hover">
                                     <thead>

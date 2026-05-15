@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::paginate(10);
-        return view('admin.categories.index', compact('categories'));
+        $tags = Tag::paginate(10);
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.tags.create');
     }
 
     /**
@@ -34,9 +34,9 @@ class CategoryController extends Controller
             'title' => 'required',
         ]);
 
-        Category::create($request->all());
+        Tag::create($request->all());
 
-        return redirect()->route('categories.index')->with('success', 'Категория добавлена');
+        return redirect()->route('tags.index')->with('success', 'Тэг добавлен');
     }
 
     /**
@@ -52,8 +52,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('admin.categories.edit', compact('category'));
+        $tag = Tag::find($id);
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -65,11 +65,11 @@ class CategoryController extends Controller
             'title' => 'required',
         ]);
 
-        $category = Category::find($id);
-        $category->slug = null;
-        $category->update($request->all());
+        $tag = Tag::find($id);
+        $tag->slug = null;
+        $tag->update($request->all());
 
-        return redirect()->route('categories.index')->with('success', 'Изменения сохранены');
+        return redirect()->route('tags.index')->with('success', 'Изменения сохранены');
     }
 
     /**
@@ -77,10 +77,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        Category::destroy($id);
+        $tag = Tag::find($id);
+        $tag->delete();
+        Tag::destroy($id);
 
-        return redirect()->route('categories.index')->with('success', 'Категория удалена');
+        return redirect()->route('tags.index')->with('success', 'Категория удалена');
     }
 }
